@@ -1,0 +1,9 @@
+
+URL netlify
+https://pedantic-edison-9a57f7.netlify.app/login\
+\
+
+
+Usuario de prueba auth\
+User:gustavo@vue.cl\
+Pass: 123456
