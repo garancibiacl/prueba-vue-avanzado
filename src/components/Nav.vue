@@ -15,9 +15,11 @@
       <v-toolbar-items>
         <v-btn>
           <v-btn icon>
-            <v-icon>mdi-home-outline</v-icon>
+            <v-icon>mdi-clipboard-account</v-icon>
+               <router-link to="/" class="enlace-nav"
+                >  Login </router-link>
           </v-btn>
-          Inicio</v-btn
+        </v-btn
         >
         <v-btn>
           <v-icon>mdi-cog-outline</v-icon>
@@ -44,8 +46,10 @@
         <v-list-item-group>
           <v-list-item>
             <v-list-item-title>
-              <v-icon>mdi-home-outline</v-icon>
-              Inicio</v-list-item-title
+              <v-icon>mdi-clipboard-account</v-icon>
+                 <router-link to="/" class="enlace"
+                >  Login </router-link>
+           </v-list-item-title
             >
           </v-list-item>
           <v-list-item>

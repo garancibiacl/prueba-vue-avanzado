@@ -48,7 +48,6 @@
 </template>
 
 <script>
-
 import { login } from "../firebase.js";
 export default {
   data() {
@@ -69,30 +68,28 @@ export default {
     },
 
     loginIncorrecto(error) {
-      // switch (error) {
-      //   case "auth/invalid-email":
-      //     this.msg = "El email es incorrecto";
-      //     break;
-      //   case "auth/wrong-password":
-      //     this.msg = "La contraseña es incorrecta";
-      //     break;
-      // }
+      switch (error) {
+        case "auth/invalid-email":
+          this.msg = "El email es incorrecto";
+          break;
+        case "auth/wrong-password":
+          this.msg = "La contraseña es incorrecta";
+          break;
+      }
 
-        if (error === "auth/invalid-email") {
-        // alert("Correo incorrecto");
+      if (error === "auth/invalid-email") {
+        const Swal = require("sweetalert2");
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Correo incorrecto!",
+          confirmButtonText: "Reintentar",
+        }); // se crea alerta eliminar post
       }
 
       if (error === "auth/wrong-password") {
-        // alert("Contraseña incorrecta");
-                const Swal = require('sweetalert2')
-Swal.fire({
-  icon: 'error',
-  title: 'Oops...',
-  text: 'Contraseña incorrecta!',
-  confirmButtonText: 'Reintentar'
-});// se crea alerta eliminar post
+        alert("Contraseña incorrecta");
       }
-  
 
       setTimeout(() => {
         this.msg = "";

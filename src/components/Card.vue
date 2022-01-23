@@ -5,7 +5,7 @@
         <v-card max-width="344" class="m-4">
           <v-img
             height="200px"
-            src="https://cdn.pixabay.com/photo/2020/07/12/07/47/bee-5396362_1280.jpg"
+            :src="CoursesProp.image" 
           >
           </v-img>
           <div class="font-weight-bold ml-8 mb-2 mt-3">{{CoursesProp.name}}</div>
@@ -29,10 +29,10 @@
                     <strong>{{ CoursesProp.number_course }}</strong>
                   </div>
                   <div>{{ CoursesProp.completed }}</div>
-                  <div class="font-weight-normal">
+                  <!-- <div class="font-weight-normal">
                     <strong>Fecha de Registro</strong>
-                  </div>
-                  <div>{{ CoursesProp.register }}</div>
+                  </div> -->
+                  <!-- <div>{{ CoursesProp.register }}</div> -->
                 </div>
               </v-timeline-item>
             </v-timeline>

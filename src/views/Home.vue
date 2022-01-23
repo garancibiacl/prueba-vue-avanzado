@@ -1,9 +1,9 @@
 <template>
-    <v-container class="course">
-        <h1 class="mb-5 text-center">Lista de cursos</h1>
-        <v-row>
-            <v-col cols="4" v-for="(course, index) in courses" :key="index">
-                <v-card max-width="344" class="cards">
+  <v-container class="course">
+    <h1 class="mb-5 text-center">Lista de cursos</h1>
+    <v-row>
+      <v-col cols="4" v-for="(course, index) in courses" :key="index">
+        <!-- <v-card max-width="344" class="cards">
                     <v-img
                     height="200px"
                     src="https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png"
@@ -37,64 +37,71 @@
                             </v-timeline-item>
                         </v-timeline>
                     </v-card-text>
-                </v-card>
-            </v-col>
-        </v-row>
-    </v-container>
+                </v-card> -->
+        <Card :CoursesProp="course"></Card>
+        <!--Se pasa prop padre al componente Card -->
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 <script>
+import Card from "../components/Card"; // Se importa componente cards
+import courses from "../courses"; // Se importa componentes cursos
 export default {
-    data(){
-        return{
-        "messages": [
-                        {
-                        from: 'You',
-                        message: `Sure, I'll see you later.`,
-                        time: '10:42am',
-                        color: 'deep-purple lighten-1',
-                        },
-                        {
-                        from: 'John Doe',
-                        message: 'Yeah, sure. Does 1:00pm work?',
-                        time: '10:37am',
-                        color: 'green',
-                        },
-                        {
-                        from: 'You',
-                        message: 'Did you still want to grab lunch today?',
-                        time: '9:47am',
-                        color: 'deep-purple lighten-1',
-                        },
-                    ],
-        "courses": [1,2,3,4,5]
-        }
-    },
-    created(){
-        this.$store.dispatch('getData');
-    },
+  data() {
+    return {
+      courses: courses,
+    };
 
-    computed:{
-        courses1(){
-            return this.$store.state.courses;
-        }
-    }
-        
-    
-}
+    // "messages": [
+    //                 {
+    //                 from: 'You',
+    //                 message: `Sure, I'll see you later.`,
+    //                 time: '10:42am',
+    //                 color: 'deep-purple lighten-1',
+    //                 },
+    //                 {
+    //                 from: 'John Doe',
+    //                 message: 'Yeah, sure. Does 1:00pm work?',
+    //                 time: '10:37am',
+    //                 color: 'green',
+    //                 },
+    //                 {
+    //                 from: 'You',
+    //                 message: 'Did you still want to grab lunch today?',
+    //                 time: '9:47am',
+    //                 color: 'deep-purple lighten-1',
+    //                 },
+    //             ],
+    // "courses": [1,2,3,4,5]
+  },
+  components: {
+    Card,
+  },
+  created() {
+    this.$store.dispatch("getData");
+  },
+
+  computed: {
+    courses1() {
+      return this.$store.state.courses;
+    },
+  },
+};
 </script>
 
 <style scoped>
-.v-card{
-    margin: 0 auto;
+.v-card {
+  margin: 0 auto;
 }
 .course {
   margin-top: 5rem;
 }
-.cards{
-background: rgba( 255, 255, 255, 0.1 );
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 7.5px );
--webkit-backdrop-filter: blur( 7.5px );
-border-radius: 10px;
+.cards {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(7.5px);
+  -webkit-backdrop-filter: blur(7.5px);
+  border-radius: 10px;
 }
 </style>

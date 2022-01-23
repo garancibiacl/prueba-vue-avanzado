@@ -1,7 +1,7 @@
 <template>
   <v-container class="login">
     <v-row>
-            <v-col cols="12"  class="col-md-1 text-center">
+      <v-col cols="12" class="col-md-1 text-center">
         <!-- <img src="../assets/student.png" alt="" /> -->
       </v-col>
       <v-col cols="12" md="6" class="text-center">
@@ -22,11 +22,10 @@
             :type="show1 ? 'text' : 'password'"
             name="input-10-1"
             label="Password"
-            hint="Ingrese su contraseña de 6 caracteres" 
+            hint="Ingrese su contraseña de 6 caracteres"
             counter
             @click:append="show1 = !show1"
           ></v-text-field>
-
 
           <v-btn
             elevation="2"
@@ -41,11 +40,9 @@
             Limpiar Formulario
           </v-btn>
 
-          <v-btn color="warning" class="mr-4 mt-5" >
-            Limpiar Validación
-          </v-btn>
+          <v-btn color="warning" class="mr-4 mt-5"> Limpiar Validación </v-btn>
         </v-form>
-         <v-banner single-line class="mt-3"></v-banner>
+        <v-banner single-line class="mt-3"></v-banner>
         <div class="container-fluid mt-2">
           <router-link to="/">Volver al login</router-link>
         </div>
@@ -75,11 +72,10 @@ export default {
       this.email = "";
     },
 
-    registerUser(error){
-      switch(error){
-        
+    registerUser(error) {
+      switch (error) {
         case "auth/invalid-email":
-            alert("El email no es valido");
+          alert("El email no es valido");
           // this.msg = "El email no es valido";
           break;
         case "auth/email-already-in-use":
@@ -92,22 +88,22 @@ export default {
           this.msg = "Error desconocido";
           break;
       }
-      alert("Usuario registrado con éxito");
+      const Swal = require("sweetalert2");
+      Swal.fire(
+        "Usuario registrado con exito!",
+        "Click en OK para continuar",
+        "success"
+      ); // se crea alerta eliminar post
+      // alert("Usuario registrado con éxito");
       this.email = "";
       this.password = "";
-
-
 
       setTimeout(() => {
         this.msg = "";
       }, 3000);
     },
     register() {
-      registrarUsuario(
-        this.email,
-        this.password,
-        this.registerUser
-      );
+      registrarUsuario(this.email, this.password, this.registerUser);
     },
   },
 };

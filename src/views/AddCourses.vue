@@ -79,7 +79,7 @@
 </template>
 <script>
 
-// import { addData} from '../firebase/firebase.js'
+import { addData} from '../firebase.js'
 
 export default {
   data() {
@@ -107,21 +107,21 @@ export default {
       this.create.description = ''
     },
 
-  //   createCourseCallback(){
-  //     alert('Curso creado con exito')
-  //     this.create.name = ''
-  //     this.create.image = ''
-  //     this.create.number_course = ''
-  //     this.create.number_signup = ''
-  //     this.create.duration = ''
-  //     this.create.price = ''
-  //     this.create.description = ''
+    createCourseCallback(){
+      alert('Curso creado con exito')
+      this.create.name = ''
+      this.create.image = ''
+      this.create.number_course = ''
+      this.create.number_signup = ''
+      this.create.duration = ''
+      this.create.price = ''
+      this.create.description = ''
 
-  //   },
+    },
 
-  //   createCourse(){
-  //     addData(this.create, this.createCourseCallback)
-  //   }
+    createCourse(){
+      addData(this.create, this.createCourseCallback)
+    }
   },
 };
 </script>
